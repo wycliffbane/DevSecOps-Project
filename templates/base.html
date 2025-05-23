@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}DevSecOps Project{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f9;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #003366;
+        }
+        .navbar-brand, .nav-link, .nav-link:hover {
+            color: #ffffff !important;
+        }
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .content {
+            margin-bottom: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">DevSecOps Project</a>
+            <div>
+                <a class="nav-link d-inline" href="/">Home</a>
+                <a class="nav-link d-inline" href="/about">About Me</a>
+                <a class="nav-link d-inline" href="/infrastructure">Infrastructure</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Wycliff K' Asharvin • DevOps & DevSecOps Engineer • Dubai</p>
+    </footer>
+</body>
+</html>

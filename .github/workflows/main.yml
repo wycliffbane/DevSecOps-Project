@@ -25,8 +25,5 @@ jobs:
       run: |
         bandit -r . -f json -o bandit-report.json || true
 
-    - name: Upload Bandit scan report
-      uses: actions/upload-artifact@v2
-      with:
-        name: bandit-report
-        path: bandit-report.json
+    - name: Print scan output (basic test)
+      run: cat bandit-report.json

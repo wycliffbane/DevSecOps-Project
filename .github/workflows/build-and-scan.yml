@@ -1,42 +1,32 @@
-name: build-and-scan
+name: Build and Security Scan
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push]
 
 jobs:
   build-and-scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v4
         with:
-          python-version: 3.12
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-      - name: Run Bandit security scan
-        run: |
           pip install bandit
-          bandit -r . -f json -o bandit-report.json
+
+      - name: Run Bandit Scan and Save Report
+        run: |
+          mkdir -p artifacts
+          bandit -r app/ -f txt -o artifacts/bandit-report.txt
 
       - name: Upload Bandit Report
         uses: actions/upload-artifact@v4
         with:
           name: bandit-report
-          path: bandit-report.json
-
-      - name: Use GitHub Secret
-        run: |
-          echo "Length of secret is: ${#SECRET_KEY}"
-        env:
-          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          path: artifacts/bandit-report.txt

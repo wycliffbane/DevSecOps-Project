@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Compliance Artifacts{% endblock %}
+
+{% block content %}
+<h2>Compliance Artifacts</h2>
+<p>Here are my generated compliance reports and logs:</p>
+
+<ul>
+    <li><a href="{{ url_for('static', filename='artifacts/bandit_report.json') }}" download>Bandit Scan Report</a></li>
+    <li><a href="{{ url_for('static', filename='artifacts/deployment_log.txt') }}" download>Deployment Log</a></li>
+</ul>
+{% endblock %}

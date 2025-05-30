@@ -2,54 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}DevSecOps Project{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f4f6f9;
-            padding-top: 60px;
-        }
-        .navbar {
-            background-color: #003366;
-        }
-        .navbar-brand, .nav-link, .nav-link:hover {
-            color: #ffffff !important;
-        }
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .content {
-            margin-bottom: 80px;
-        }
-    </style>
+    <title>{% block title %}{% endblock %} - My DevSecOps Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="/">DevSecOps Project</a>
-            <div>
-                <a class="nav-link d-inline" href="/">Home</a>
-                <a class="nav-link d-inline" href="/about">About Me</a>
-                <a class="nav-link d-inline" href="/infrastructure">Infrastructure</a>
-            </div>
-        </div>
-    </nav>
+    <header>
+        <h1>My DevSecOps Project</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About Me</a>
+            <a href="/compliance">Compliance Artifacts</a>
+            <a href="/infrastructure">Infrastructure</a>
+        </nav>
+    </header>
 
-    <!-- Page Content -->
-    <div class="container content">
+    <div class="container">
         {% block content %}{% endblock %}
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Wycliff K' Asharvin • DevOps & DevSecOps Engineer • Dubai</p>
+        <p>© 2025 Wycliff K' Asharvin. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
